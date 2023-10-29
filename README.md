@@ -27,7 +27,7 @@
 #### Решение 2
 
 ```
-version: '1'
+version: '3'
 
 services:
 
@@ -50,45 +50,77 @@ networks:
 Добавьте необходимые тома с данными и конфигурацией (конфигурация лежит в репозитории в директории 6-04/prometheus).
 Обеспечьте внешний доступ к порту 9090 c докер-сервера.
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+#### Решение 3
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+version: '3'
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+services:
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    container_name: Bobkov-E-O-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - Bobkov-E-O-my-netology-hw
+    restart: always
+
+volumes:
+  prometheus-data:
+
+```
 
 ### Задание 4
 
-`Приведите ответ в свободной форме........`
+Выполните действия:
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+Создайте конфигурацию docker-compose для Pushgateway с именем контейнера <ваши фамилия и инициалы>-netology-pushgateway.
+Обеспечьте внешний доступ к порту 9091 c докер-сервера.
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+version: '3'
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+services:
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    container_name: Bobkov-E-O-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - Bobkov-E-O-my-netology-hw
+    restart: always
+
+  pushgateway:
+    image: prom/pushgateway:v1.6.2
+    container_name: Bobkov-E-O-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - Bobkov-E-O-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus-data:
+
+networks:
+  Bobkov-E-O-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+```
+### Задание 5
 
 ---
 ## Дополнительные задания (со звездочкой*)
