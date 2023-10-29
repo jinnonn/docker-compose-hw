@@ -213,9 +213,42 @@ admin_password = netology
 
 #### Решение 6
 
-![task6](https://github.com/jinnonn/docker-compose-hw/main/img/task6.png)
+![task6](https://github.com/jinnonn/docker-compose-hw/blob/main/img/task6.png)
 
 ---
+### Задание 7 
+
+**Выполните действия.**
+1. Выполните запрос в Pushgateway для помещения метрики <ваши фамилия и инициалы> со значением 5 в Prometheus: ```echo "<ваши фамилия и инициалы> 5" | curl --data-binary @- http://localhost:<внешний порт выбранный вами в пункте 2>/metrics/job/netology```.
+2. Залогиньтесь в Grafana с помощью логина и пароля из предыдущего задания.
+3. Cоздайте Data Source Prometheus (Home -> Connections -> Data sources -> Add data source -> Prometheus -> указать "Prometheus server URL = http://<ваши фамилия и инициалы>-netology-prometheus:9090" -> Save & Test).
+4. Создайте график на основе добавленной в пункте 5 метрики (Build a dashboard -> Add visualization -> Prometheus -> Select metric -> Metric explorer -> <ваши фамилия и инициалы -> Apply.
+
+В качестве решения приложите:
+
+* docker-compose.yml **целиком**;
+* скриншот команды docker ps после запуске docker-compose.yml;
+* скриншот графика, постоенного на основе вашей метрики.
+
+#### Решение 7
+
+* docker-compose.yml лежит в корневой папке этого репо
+* ![task6](https://github.com/jinnonn/docker-compose-hw/blob/main/img/task6.png)
+* ![task7](https://github.com/jinnonn/docker-compose-hw/blob/main/img/task7.png)
+
+---
+### Задание 8
+
+**Выполните действия:** 
+
+1. Остановите и удалите все контейнеры одной командой.
+
+В качестве решения приложите скриншот консоли с проделанными действиями.
+
+#### Решение 8
+
+
+
 ## Дополнительные задания (со звездочкой*)
 
 Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.
