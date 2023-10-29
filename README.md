@@ -213,7 +213,7 @@ admin_password = netology
 
 #### Решение 6
 
-![task6](https://github.com/jinnonn/docker-compose-hw/img/task6.png)
+![task6](https://github.com/jinnonn/docker-compose-hw/main/img/task6.png)
 
 ---
 ## Дополнительные задания (со звездочкой*)
