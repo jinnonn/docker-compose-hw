@@ -247,7 +247,8 @@ admin_password = netology
 
 #### Решение 8
 
-
+* ![task8](https://github.com/jinnonn/docker-compose-hw/blob/main/img/изображение_2023-10-30_014056105.png)
+* ![task8](https://github.com/jinnonn/docker-compose-hw/blob/main/img/изображение_2023-10-30_014118532.png)
 
 ## Дополнительные задания (со звездочкой*)
 
